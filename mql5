@@ -1,0 +1,71 @@
+
+// FX Tiger Indicator
+// Developer: Forex Robot Easy Team
+// Website: forexroboteasy.com
+
+// Currency Score Calculation
+double CalculateCurrencyScore(string currency)
+{
+    double score = 0;
+    
+    // Add code to calculate score based on currency strength and weakness
+    
+    return score;
+}
+
+// Identify Strong and Weak Currencies
+void IdentifyStrongWeakCurrencies()
+{
+    // Get list of all major currencies
+    string[] majorCurrencies = {'USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD', 'CHF'};
+    
+    // Calculate score for each currency
+    double[] scores = new double[majorCurrencies.Length];
+    for (int i = 0; i < majorCurrencies.Length; i++)
+    {
+        scores[i] = CalculateCurrencyScore(majorCurrencies[i]);
+    }
+    
+    // Identify strong and weak currencies
+    List<string> strongCurrencies = new List<string>();
+    List<string> weakCurrencies = new List<string>();
+    
+    for (int i = 0; i < scores.Length; i++)
+    {
+        if (scores[i] >= 5)
+        {
+            strongCurrencies.Add(majorCurrencies[i]);
+        }
+        else if (scores[i] <= -5)
+        {
+            weakCurrencies.Add(majorCurrencies[i]);
+        }
+    }
+    
+    // Print the results
+    Print('Strong Currencies: ' + string.Join(', ', strongCurrencies.ToArray()));
+    Print('Weak Currencies: ' + string.Join(', ', weakCurrencies.ToArray()));
+}
+
+// User Interface
+void OnChartEvent(const int id, const long& lparam, const double& dparam, const string& sparam)
+{
+    if (id == CHARTEVENT_CLICK)
+    {
+        // Display a user-friendly interface for pairing strong and weak currencies
+        // Add code for user interface here
+    }
+}
+
+// Main Function
+void OnStart()
+{
+    // Identify strong and weak currencies
+    IdentifyStrongWeakCurrencies();
+    
+    // Add code for trading functions here
+    
+    // Add code for testing here
+    
+    // Add code for documentation here
+}
